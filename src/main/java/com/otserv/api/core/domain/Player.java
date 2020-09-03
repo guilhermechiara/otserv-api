@@ -14,4 +14,5 @@ public class Player {
     private String name;
     private PlayerGroup group;
     private Account account;
+    private byte[] conditions;
 }

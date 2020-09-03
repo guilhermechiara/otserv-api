@@ -2,6 +2,7 @@ package com.otserv.api.data.entities;
 
 import com.otserv.api.core.domain.Account;
 import com.otserv.api.core.domain.AccountType;
+import com.otserv.api.core.domain.Player;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,6 +13,9 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.Instant;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity(name = "accounts")
 @Getter
@@ -45,6 +49,9 @@ public class AccountEntity {
 
     @Column(name = "creation")
     private Instant creation;
+
+    @OneToMany(mappedBy = "account")
+    private Set<PlayerEntity> players;
 
     public static AccountEntity from(Account object) {
         return AccountEntity.builder()

@@ -1,6 +1,6 @@
 package com.otserv.api.presenter.controllers;
 
-import com.otserv.api.core.usecases.GetPlayerByNameUseCase;
+import com.otserv.api.core.usecases.GetPlayerByIdUseCase;
 import com.otserv.api.presenter.entities.player.PlayerResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,17 +12,17 @@ import java.util.concurrent.CompletableFuture;
 @RestController
 @RequestMapping("/players")
 public class PlayerController {
-    private GetPlayerByNameUseCase getPlayerByNameUseCase;
+    private GetPlayerByIdUseCase getPlayerByIdUseCase;
 
-    public PlayerController(GetPlayerByNameUseCase getPlayerByNameUseCase) {
-        this.getPlayerByNameUseCase = getPlayerByNameUseCase;
+    public PlayerController(GetPlayerByIdUseCase getPlayerByIdUseCase) {
+        this.getPlayerByIdUseCase = getPlayerByIdUseCase;
     }
 
     @GetMapping("/{id}")
-    public CompletableFuture<PlayerResponse> getById(@PathVariable String id) {
+    public CompletableFuture<PlayerResponse> getById(@PathVariable Long id) {
         return CompletableFuture
-                .supplyAsync(() -> new GetPlayerByNameUseCase.InputValues(id))
-                .thenApplyAsync(getPlayerByNameUseCase::execute)
+                .supplyAsync(() -> new GetPlayerByIdUseCase.InputValues(id))
+                .thenApplyAsync(getPlayerByIdUseCase::execute)
                 .thenApplyAsync(outputValues -> PlayerResponse.from(outputValues.getPlayer()));
     }
 }

@@ -1,33 +1,44 @@
 package com.otserv.api.presenter.controllers;
 
 import com.otserv.api.core.usecases.CreateAccountUseCase;
+import com.otserv.api.core.usecases.CreatePlayerUseCase;
 import com.otserv.api.core.usecases.GetAccountByIdUseCase;
-import com.otserv.api.core.usecases.GetAccountByNameUseCase;
+import com.otserv.api.core.usecases.GetPlayersByAccountIdUseCase;
 import com.otserv.api.presenter.entities.account.AccountRequest;
 import com.otserv.api.presenter.entities.account.AccountResponse;
 import com.otserv.api.presenter.entities.account.CreateAccountInputMapper;
 import com.otserv.api.presenter.entities.account.CreateAccountOutputMapper;
 import com.otserv.api.presenter.entities.common.ApiResponse;
+import com.otserv.api.presenter.entities.player.CreatePlayerInputMapper;
+import com.otserv.api.presenter.entities.player.CreatePlayerOutputMapper;
+import com.otserv.api.presenter.entities.player.PlayerRequest;
+import com.otserv.api.presenter.entities.player.PlayerResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.time.Instant;
+import javax.validation.Valid;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/accounts")
 public class AccountController {
     private final GetAccountByIdUseCase getAccountByIdUseCase;
     private final CreateAccountUseCase createAccountUseCase;
+    private final CreatePlayerUseCase createPlayerUseCase;
+    private final GetPlayersByAccountIdUseCase getPlayersByAccountIdUseCase;
 
     public AccountController(
             GetAccountByIdUseCase getAccountByIdUseCase,
-            CreateAccountUseCase createAccountUseCase
+            CreateAccountUseCase createAccountUseCase,
+            CreatePlayerUseCase createPlayerUseCase,
+            GetPlayersByAccountIdUseCase getPlayersByAccountIdUseCase
     ) {
         this.getAccountByIdUseCase = getAccountByIdUseCase;
         this.createAccountUseCase = createAccountUseCase;
+        this.createPlayerUseCase = createPlayerUseCase;
+        this.getPlayersByAccountIdUseCase = getPlayersByAccountIdUseCase;
     }
 
     @GetMapping("/{id}")
@@ -48,5 +59,25 @@ public class AccountController {
                 .thenApplyAsync(createAccountUseCase::execute)
                 .thenApplyAsync(outputValues -> CreateAccountOutputMapper.map(outputValues.getAccount(), http));
 
+    }
+
+    @PostMapping("/{id}/players")
+    public CompletableFuture<ResponseEntity<ApiResponse>> createPlayer(
+            @PathVariable Long id,
+            @RequestBody @Valid PlayerRequest request,
+            HttpServletRequest http
+    ) {
+        return CompletableFuture
+                .supplyAsync(() -> CreatePlayerInputMapper.map(request, id))
+                .thenApplyAsync(createPlayerUseCase::execute)
+                .thenApplyAsync(outputValues -> CreatePlayerOutputMapper.map(outputValues.getPlayer(), http));
+    }
+
+    @GetMapping("/{id}/players")
+    public CompletableFuture<List<PlayerResponse>> playersInAccount(@PathVariable Long id) {
+        return CompletableFuture
+                .supplyAsync(() -> new GetPlayersByAccountIdUseCase.InputValues(id))
+                .thenApplyAsync(getPlayersByAccountIdUseCase::execute)
+                .thenApplyAsync(outputValues -> PlayerResponse.from(outputValues.getPlayers()));
     }
 }

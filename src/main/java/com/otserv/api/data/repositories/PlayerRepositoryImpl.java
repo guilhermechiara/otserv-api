@@ -6,6 +6,7 @@ import com.otserv.api.data.entities.PlayerEntity;
 import com.otserv.api.data.repositories.jpa.JpaPlayerRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -18,13 +19,22 @@ public class PlayerRepositoryImpl implements PlayerRepository {
 
     @Override
     public Player save(Player player) {
-        return null;
+        return PlayerEntity.to(
+                this.jpaPlayerRepository.save(PlayerEntity.from(player))
+        );
     }
 
     @Override
-    public Optional<Player> getByName(String name) {
+    public Optional<Player> getById(Long id) {
         return this.jpaPlayerRepository
-                .findByName(name)
+                .findById(id)
+                .map(PlayerEntity::to);
+    }
+
+    @Override
+    public Optional<List<Player>> getByAccountId(Long id) {
+        return this.jpaPlayerRepository
+                .findAllByAccount_Id(id)
                 .map(PlayerEntity::to);
     }
 }

@@ -21,4 +21,5 @@ public class Account {
     private Instant lastDay;
     private String email;
     private Instant creation;
+    List<Player> players;
 }

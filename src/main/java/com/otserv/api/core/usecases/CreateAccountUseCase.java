@@ -7,8 +7,6 @@ import com.otserv.api.core.exceptions.EmailOrAccountNameAlreadyInUseException;
 import com.otserv.api.core.repositories.AccountRepository;
 import com.otserv.api.core.repositories.PasswordRepository;
 import lombok.Value;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;

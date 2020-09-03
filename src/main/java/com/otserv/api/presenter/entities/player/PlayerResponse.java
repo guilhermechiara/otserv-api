@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Getter
 @Builder
 @NoArgsConstructor
@@ -14,13 +17,20 @@ import lombok.NoArgsConstructor;
 public class PlayerResponse {
     private Long id;
     private String name;
-    private AccountResponse account;
+    private Long accountId;
 
     public static PlayerResponse from(Player player) {
         return PlayerResponse.builder()
-                .account(AccountResponse.from(player.getAccount()))
                 .id(player.getId())
                 .name(player.getName())
+                .accountId(player.getAccount().getId())
                 .build();
+    }
+
+    public static List<PlayerResponse> from(List<Player> players) {
+        return players
+                .stream()
+                .map(PlayerResponse::from)
+                .collect(Collectors.toList());
     }
 }

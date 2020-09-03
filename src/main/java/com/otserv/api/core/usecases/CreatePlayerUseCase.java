@@ -6,13 +6,15 @@ import com.otserv.api.core.domain.Player;
 import com.otserv.api.core.domain.PlayerGroup;
 import com.otserv.api.core.repositories.PlayerRepository;
 import lombok.Value;
+import org.springframework.stereotype.Service;
 
-public class CreatePlayerInAccountUseCase implements
-        UseCase<CreatePlayerInAccountUseCase.InputValues, CreatePlayerInAccountUseCase.OutputValues> {
+@Service
+public class CreatePlayerUseCase implements
+        UseCase<CreatePlayerUseCase.InputValues, CreatePlayerUseCase.OutputValues> {
     private PlayerRepository playerRepository;
     private GetAccountByIdUseCase getAccountByIdUseCase;
 
-    public CreatePlayerInAccountUseCase(
+    public CreatePlayerUseCase(
             PlayerRepository playerRepository,
             GetAccountByIdUseCase getAccountByIdUseCase
     ) {
@@ -26,12 +28,15 @@ public class CreatePlayerInAccountUseCase implements
                 .execute(new GetAccountByIdUseCase.InputValues(input.getAccountId()))
                 .getAccount();
 
+        Player player = Player.builder()
+                .account(account)
+                .group(PlayerGroup.PLAYER)
+                .name(input.getName())
+                .conditions(new byte[0])
+                .build();
+
         return new OutputValues(
-            Player.builder()
-                    .account(account)
-                    .group(PlayerGroup.PLAYER)
-                    .name(input.getName())
-                    .build()
+            this.playerRepository.save(player)
         );
     }
 
