@@ -7,9 +7,11 @@ import com.otserv.api.core.exceptions.EmailOrAccountNameAlreadyInUseException;
 import com.otserv.api.core.repositories.AccountRepository;
 import com.otserv.api.core.repositories.PasswordRepository;
 import lombok.Value;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Service
 public class CreateAccountUseCase implements
@@ -32,12 +34,13 @@ public class CreateAccountUseCase implements
         }
 
         Account account = Account.builder()
-                .creation(LocalDateTime.now())
                 .email(input.getName())
                 .name(input.getName())
                 .password(passwordRepository.encode(input.getPassword()))
                 .premiumDays(0)
                 .type(AccountType.ACCOUNT_TYPE_NORMAL)
+                .creation(Instant.now())
+                .lastDay(Instant.now())
                 .build();
 
         return new OutputValues(

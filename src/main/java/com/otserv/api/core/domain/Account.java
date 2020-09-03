@@ -2,7 +2,10 @@ package com.otserv.api.core.domain;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Instant;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -15,7 +18,7 @@ public class Account {
     private String secret;
     private AccountType type;
     private int premiumDays;
-    private LocalDateTime lastDay;
+    private Instant lastDay;
     private String email;
-    private LocalDateTime creation;
+    private Instant creation;
 }

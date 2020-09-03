@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 public class PasswordRepositoryImpl implements PasswordRepository {
     @Override
     public String encode(String password) {
+        /* Todo: sha1 vs sha256? */
         return Hashing.sha1()
                 .hashString(password, StandardCharsets.UTF_8)
                 .toString();

@@ -2,7 +2,8 @@ package com.otserv.api.presenter.entities.account;
 
 import com.otserv.api.core.domain.Account;
 import lombok.*;
-import java.time.LocalDateTime;
+
+import java.time.Instant;
 
 @Getter
 @Builder
@@ -12,8 +13,8 @@ public class AccountResponse {
     private Long id;
     private String email;
     private int premiumDays;
-    private LocalDateTime creation;
-    private LocalDateTime lastDay;
+    private Instant creation;
+    private Instant lastDay;
 
     public static AccountResponse from(Account account) {
         return AccountResponse.builder()

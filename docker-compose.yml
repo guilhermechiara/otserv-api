@@ -12,9 +12,17 @@ services:
       - ./schema:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
+    networks:
+      - server-network
 
   adminer:
     image: adminer
     restart: always
     ports:
       - 8081:8080
+    networks:
+      - server-network
+
+networks:
+  server-network:
+    driver: bridge

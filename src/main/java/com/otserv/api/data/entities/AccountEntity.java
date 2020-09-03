@@ -8,9 +8,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Instant;
+import java.util.Calendar;
 
-@Entity(name = "account")
+@Entity(name = "accounts")
 @Getter
 @Builder
 @NoArgsConstructor
@@ -35,13 +38,13 @@ public class AccountEntity {
     private int premiumDays;
 
     @Column(name = "lastday")
-    private LocalDateTime lastDay;
+    private Instant lastDay;
 
     @Column(name = "email")
     private String email;
 
     @Column(name = "creation")
-    private LocalDateTime creation;
+    private Instant creation;
 
     public static AccountEntity from(Account object) {
         return AccountEntity.builder()
