@@ -39,13 +39,19 @@ public class PlayerEntity {
     @JoinColumn(name = "vocation", nullable = false)
     private VocationEntity vocation;
 
-    @Column(name = "health", insertable = false)
+    @Column(name = "health")
     private int health;
 
-    @Column(name = "healthmax", insertable = false)
+    @Column(name = "healthmax")
     private int healthMax;
 
-    @Column(name = "experience", insertable = false)
+    @Column(name = "mana")
+    private int mana;
+
+    @Column(name = "manamax")
+    private int manaMax;
+
+    @Column(name = "experience")
     private Long experience;
 
     public static Player to(PlayerEntity player) {
@@ -58,6 +64,8 @@ public class PlayerEntity {
                 .experience(player.getExperience())
                 .health(player.getHealth())
                 .healthMax(player.getHealthMax())
+                .mana(player.getMana())
+                .manaMax(player.getManaMax())
                 .level(player.getLevel())
                 .vocation(VocationEntity.to(player.getVocation()))
                 .build();
@@ -74,6 +82,8 @@ public class PlayerEntity {
                 .experience(player.getExperience())
                 .health(player.getHealth())
                 .healthMax(player.getHealthMax())
+                .mana(player.getMana())
+                .manaMax(player.getManaMax())
                 .level(player.getLevel())
                 .vocation(VocationEntity.from(player.getVocation()))
                 .build();

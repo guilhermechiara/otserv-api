@@ -23,6 +23,8 @@ public class PlayerResponse {
     private VocationResponse vocation;
     private int health;
     private int healthMax;
+    private int mana;
+    private int manaMax;
     private Long experience;
 
     public static PlayerResponse from(Player player) {
@@ -33,6 +35,8 @@ public class PlayerResponse {
                 .experience(player.getExperience())
                 .health(player.getHealth())
                 .healthMax(player.getHealthMax())
+                .mana(player.getMana())
+                .manaMax(player.getManaMax())
                 .level(player.getLevel())
                 .vocation(VocationResponse.from(player.getVocation()))
                 .build();

@@ -19,5 +19,7 @@ public class Player {
     private Vocation vocation;
     private int health;
     private int healthMax;
+    private int mana;
+    private int manaMax;
     private Long experience;
 }

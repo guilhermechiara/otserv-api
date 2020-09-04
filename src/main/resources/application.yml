@@ -16,4 +16,10 @@ spring:
 folders-config:
   data-path: ../server/forgottenserver/data
 
+player-config:
+  level: 8
+  experience: 4200
+  health: 185
+  mana: 90
+
 
