@@ -1,6 +1,6 @@
 package com.otserv.api.presenter.controllers;
 
-import com.otserv.api.core.usecases.GetPlayerByIdUseCase;
+import com.otserv.api.core.usecases.players.GetPlayerByIdUseCase;
 import com.otserv.api.presenter.entities.player.PlayerResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

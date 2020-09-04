@@ -15,4 +15,9 @@ public class Player {
     private PlayerGroup group;
     private Account account;
     private byte[] conditions;
+    private int level;
+    private Vocation vocation;
+    private int health;
+    private int healthMax;
+    private Long experience;
 }
