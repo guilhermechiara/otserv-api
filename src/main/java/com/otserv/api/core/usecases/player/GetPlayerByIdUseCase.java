@@ -1,4 +1,4 @@
-package com.otserv.api.core.usecases.players;
+package com.otserv.api.core.usecases.player;
 
 import com.otserv.api.core.UseCase;
 import com.otserv.api.core.domain.Player;
@@ -7,14 +7,12 @@ import com.otserv.api.core.repositories.PlayerRepository;
 import lombok.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class GetPlayersByAccountIdUseCase implements
-        UseCase<GetPlayersByAccountIdUseCase.InputValues, GetPlayersByAccountIdUseCase.OutputValues> {
+public class GetPlayerByIdUseCase implements
+        UseCase<GetPlayerByIdUseCase.InputValues, GetPlayerByIdUseCase.OutputValues> {
     private PlayerRepository playerRepository;
 
-    public GetPlayersByAccountIdUseCase(PlayerRepository playerRepository) {
+    public GetPlayerByIdUseCase(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
     }
 
@@ -22,8 +20,8 @@ public class GetPlayersByAccountIdUseCase implements
     public OutputValues execute(InputValues input) {
         return new OutputValues(
                 this.playerRepository
-                        .findByAccountId(input.getId())
-                        .orElseThrow(() -> new NotFoundException("Account with id not found"))
+                        .findById(input.getId())
+                        .orElseThrow(() -> new NotFoundException("Player with this name not found"))
         );
     }
 
@@ -34,6 +32,6 @@ public class GetPlayersByAccountIdUseCase implements
 
     @Value
     public static class OutputValues {
-        private List<Player> players;
+        private Player player;
     }
 }

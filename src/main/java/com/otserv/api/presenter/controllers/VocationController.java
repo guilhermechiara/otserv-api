@@ -1,6 +1,6 @@
 package com.otserv.api.presenter.controllers;
 
-import com.otserv.api.core.usecases.vocations.GetVocationsUseCase;
+import com.otserv.api.core.usecases.vocation.GetVocationsUseCase;
 import com.otserv.api.presenter.entities.vocation.VocationResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

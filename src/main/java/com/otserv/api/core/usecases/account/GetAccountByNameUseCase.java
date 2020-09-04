@@ -1,4 +1,4 @@
-package com.otserv.api.core.usecases.accounts;
+package com.otserv.api.core.usecases.account;
 
 import com.otserv.api.core.UseCase;
 import com.otserv.api.core.domain.Account;
@@ -8,26 +8,25 @@ import lombok.Value;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GetAccountByIdUseCase implements
-        UseCase<GetAccountByIdUseCase.InputValues, GetAccountByIdUseCase.OutputValues> {
+public class GetAccountByNameUseCase implements
+        UseCase<GetAccountByNameUseCase.InputValues, GetAccountByNameUseCase.OutputValues> {
     private AccountRepository accountRepository;
 
-    public GetAccountByIdUseCase(AccountRepository accountRepository) {
+    public GetAccountByNameUseCase(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 
     @Override
     public OutputValues execute(InputValues input) {
-        return new OutputValues(
-                this.accountRepository
-                        .findById(input.getId())
-                        .orElseThrow(() -> new NotFoundException("Account with id not found"))
-        );
+        return this.accountRepository
+            .findByName(input.getName())
+            .map(OutputValues::new)
+            .orElseThrow(() -> new NotFoundException("Account with name not found!"));
     }
 
     @Value
     public static class InputValues {
-        private Long id;
+        private String name;
     }
 
     @Value

@@ -22,4 +22,5 @@ public class Player {
     private int mana;
     private int manaMax;
     private Long experience;
+    private Town town;
 }

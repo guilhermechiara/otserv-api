@@ -1,4 +1,4 @@
-package com.otserv.api.core.usecases.accounts;
+package com.otserv.api.core.usecases.account;
 
 import com.otserv.api.core.UseCase;
 import com.otserv.api.core.domain.Account;

@@ -54,6 +54,10 @@ public class PlayerEntity {
     @Column(name = "experience")
     private Long experience;
 
+    @ManyToOne
+    @JoinColumn(name = "town_id", nullable = false)
+    private TownEntity town;
+
     public static Player to(PlayerEntity player) {
         return Player.builder()
                 .name(player.getName())
@@ -68,6 +72,7 @@ public class PlayerEntity {
                 .manaMax(player.getManaMax())
                 .level(player.getLevel())
                 .vocation(VocationEntity.to(player.getVocation()))
+                .town(TownEntity.to(player.getTown()))
                 .build();
     }
 
@@ -86,6 +91,7 @@ public class PlayerEntity {
                 .manaMax(player.getManaMax())
                 .level(player.getLevel())
                 .vocation(VocationEntity.from(player.getVocation()))
+                .town(TownEntity.from(player.getTown()))
                 .build();
     }
 

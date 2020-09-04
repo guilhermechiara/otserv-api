@@ -1,9 +1,9 @@
 package com.otserv.api.presenter.controllers;
 
-import com.otserv.api.core.usecases.accounts.CreateAccountUseCase;
-import com.otserv.api.core.usecases.players.CreatePlayerUseCase;
-import com.otserv.api.core.usecases.accounts.GetAccountByIdUseCase;
-import com.otserv.api.core.usecases.players.GetPlayersByAccountIdUseCase;
+import com.otserv.api.core.usecases.account.CreateAccountUseCase;
+import com.otserv.api.core.usecases.player.CreatePlayerUseCase;
+import com.otserv.api.core.usecases.account.GetAccountByIdUseCase;
+import com.otserv.api.core.usecases.player.GetPlayersByAccountIdUseCase;
 import com.otserv.api.presenter.entities.account.AccountRequest;
 import com.otserv.api.presenter.entities.account.AccountResponse;
 import com.otserv.api.presenter.entities.account.CreateAccountInputMapper;

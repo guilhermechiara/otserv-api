@@ -14,4 +14,7 @@ public class PlayerRequest {
 
     @NotNull
     private Integer vocationId;
+
+    @NotNull
+    private Integer townId;
 }

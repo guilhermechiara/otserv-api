@@ -2,6 +2,7 @@ package com.otserv.api.presenter.entities.player;
 
 import com.otserv.api.core.domain.Player;
 import com.otserv.api.presenter.entities.account.AccountResponse;
+import com.otserv.api.presenter.entities.town.TownResponse;
 import com.otserv.api.presenter.entities.vocation.VocationResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,6 +27,7 @@ public class PlayerResponse {
     private int mana;
     private int manaMax;
     private Long experience;
+    private TownResponse town;
 
     public static PlayerResponse from(Player player) {
         return PlayerResponse.builder()
@@ -39,6 +41,7 @@ public class PlayerResponse {
                 .manaMax(player.getManaMax())
                 .level(player.getLevel())
                 .vocation(VocationResponse.from(player.getVocation()))
+                .town(TownResponse.from(player.getTown()))
                 .build();
     }
 

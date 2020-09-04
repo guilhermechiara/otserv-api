@@ -1,4 +1,4 @@
-package com.otserv.api.core.usecases.vocations;
+package com.otserv.api.core.usecases.vocation;
 
 import com.otserv.api.core.UseCase;
 import com.otserv.api.core.domain.Vocation;

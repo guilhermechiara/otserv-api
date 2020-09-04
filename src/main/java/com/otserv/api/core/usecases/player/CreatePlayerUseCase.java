@@ -1,15 +1,13 @@
-package com.otserv.api.core.usecases.players;
+package com.otserv.api.core.usecases.player;
 
 import com.otserv.api.config.PlayerConfiguration;
 import com.otserv.api.core.UseCase;
-import com.otserv.api.core.domain.Account;
-import com.otserv.api.core.domain.Player;
-import com.otserv.api.core.domain.PlayerGroup;
-import com.otserv.api.core.domain.Vocation;
+import com.otserv.api.core.domain.*;
 import com.otserv.api.core.exceptions.PlayerNameAlreadyInUse;
 import com.otserv.api.core.repositories.PlayerRepository;
-import com.otserv.api.core.usecases.accounts.GetAccountByIdUseCase;
-import com.otserv.api.core.usecases.vocations.GetVocationByIdUseCase;
+import com.otserv.api.core.usecases.account.GetAccountByIdUseCase;
+import com.otserv.api.core.usecases.town.GetTownByIdUseCase;
+import com.otserv.api.core.usecases.vocation.GetVocationByIdUseCase;
 import lombok.Value;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,18 +22,20 @@ public class CreatePlayerUseCase implements
     private final GetAccountByIdUseCase getAccountByIdUseCase;
     private final GetVocationByIdUseCase getVocationByIdUseCase;
     private final PlayerConfiguration playerConfiguration;
+    private final GetTownByIdUseCase getTownByIdUseCase;
 
     public CreatePlayerUseCase(
             PlayerRepository playerRepository,
             GetAccountByIdUseCase getAccountByIdUseCase,
             GetVocationByIdUseCase getVocationByIdUseCase,
-            PlayerConfiguration playerConfiguration
+            PlayerConfiguration playerConfiguration,
+            GetTownByIdUseCase getTownByIdUseCase
     ) {
         this.playerRepository = playerRepository;
         this.getAccountByIdUseCase = getAccountByIdUseCase;
         this.getVocationByIdUseCase = getVocationByIdUseCase;
         this.playerConfiguration = playerConfiguration;
-
+        this.getTownByIdUseCase = getTownByIdUseCase;
     }
 
     @Override
@@ -55,6 +55,10 @@ public class CreatePlayerUseCase implements
                 .execute(new GetVocationByIdUseCase.InputValues(input.getVocationId()))
                 .getVocation();
 
+        Town town = this.getTownByIdUseCase
+                .execute(new GetTownByIdUseCase.InputValues(input.getTownId()))
+                .getTown();
+
         logger.info("Creating player");
         Player player = Player.builder()
                 .account(account)
@@ -68,6 +72,7 @@ public class CreatePlayerUseCase implements
                 .healthMax(playerConfiguration.getHealth())
                 .mana(playerConfiguration.getMana())
                 .manaMax(playerConfiguration.getMana())
+                .town(town)
                 .build();
 
         return new OutputValues(
@@ -77,9 +82,10 @@ public class CreatePlayerUseCase implements
 
     @Value
     public static class InputValues {
-        private String name;
         private Long accountId;
+        private String name;
         private Integer vocationId;
+        private Integer townId;
     }
 
     @Value
