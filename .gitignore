@@ -36,3 +36,6 @@ out/
 #database
 database/*
 !database/.gitkeep
+
+#data folder
+data/

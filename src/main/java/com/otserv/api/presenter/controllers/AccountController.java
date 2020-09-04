@@ -42,7 +42,7 @@ public class AccountController {
     }
 
     @GetMapping("/{id}")
-    public CompletableFuture<AccountResponse> getById(@PathVariable Long id) {
+    public CompletableFuture<AccountResponse> findById(@PathVariable Long id) {
         return CompletableFuture
                 .supplyAsync(() -> new GetAccountByIdUseCase.InputValues(id))
                 .thenApplyAsync(getAccountByIdUseCase::execute)

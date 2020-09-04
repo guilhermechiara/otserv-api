@@ -20,7 +20,7 @@ public class GetPlayerByIdUseCase implements
     public OutputValues execute(InputValues input) {
         return new OutputValues(
                 this.playerRepository
-                        .getById(input.getId())
+                        .findById(input.getId())
                         .orElseThrow(() -> new NotFoundException("Player with this name not found"))
         );
     }

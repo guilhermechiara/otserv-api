@@ -20,7 +20,7 @@ public class GetAccountByIdUseCase implements
     public OutputValues execute(InputValues input) {
         return new OutputValues(
                 this.accountRepository
-                        .getById(input.getId())
+                        .findById(input.getId())
                         .orElseThrow(() -> new NotFoundException("Account with id not found"))
         );
     }

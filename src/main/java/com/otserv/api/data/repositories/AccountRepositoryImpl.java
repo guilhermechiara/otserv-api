@@ -16,7 +16,7 @@ public class AccountRepositoryImpl implements com.otserv.api.core.repositories.A
     }
 
     @Override
-    public Optional<Account> getByName(String name) {
+    public Optional<Account> findByName(String name) {
         return this.jpaAccountRepository
                 .findByName(name)
                 .map(AccountEntity::to);
@@ -35,7 +35,7 @@ public class AccountRepositoryImpl implements com.otserv.api.core.repositories.A
     }
 
     @Override
-    public Optional<Account> getById(Long id) {
+    public Optional<Account> findById(Long id) {
         return this.jpaAccountRepository
                 .findById(id)
                 .map(AccountEntity::to);

@@ -19,7 +19,7 @@ public class GetAccountByNameUseCase implements
     @Override
     public OutputValues execute(InputValues input) {
         return this.accountRepository
-            .getByName(input.getName())
+            .findByName(input.getName())
             .map(OutputValues::new)
             .orElseThrow(() -> new NotFoundException("Account with name not found!"));
     }

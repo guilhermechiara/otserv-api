@@ -19,7 +19,7 @@ public class PlayerController {
     }
 
     @GetMapping("/{id}")
-    public CompletableFuture<PlayerResponse> getById(@PathVariable Long id) {
+    public CompletableFuture<PlayerResponse> findById(@PathVariable Long id) {
         return CompletableFuture
                 .supplyAsync(() -> new GetPlayerByIdUseCase.InputValues(id))
                 .thenApplyAsync(getPlayerByIdUseCase::execute)

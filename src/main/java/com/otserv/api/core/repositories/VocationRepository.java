@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface VocationRepository {
     List<Vocation> getAll();
+    Optional<Vocation> findById(Integer id);
 }

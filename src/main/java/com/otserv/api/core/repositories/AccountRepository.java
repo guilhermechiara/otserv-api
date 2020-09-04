@@ -5,8 +5,8 @@ import com.otserv.api.core.domain.Account;
 import java.util.Optional;
 
 public interface AccountRepository {
-    public Optional<Account> getByName(String name);
-    public Optional<Account> getById(Long id);
+    public Optional<Account> findByName(String name);
+    public Optional<Account> findById(Long id);
 
     public boolean existsByNameOrEmail(String name, String email);
 

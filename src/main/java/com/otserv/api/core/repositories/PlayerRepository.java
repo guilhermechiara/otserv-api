@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface PlayerRepository {
     Player save(Player player);
-    Optional<Player> getById(Long id);
-    Optional<List<Player>> getByAccountId(Long id);
+    Optional<Player> findById(Long id);
+    Optional<List<Player>> findByAccountId(Long id);
 }

@@ -5,8 +5,9 @@ import com.otserv.api.core.usecases.players.CreatePlayerUseCase;
 public class CreatePlayerInputMapper {
     public static CreatePlayerUseCase.InputValues map(PlayerRequest request, Long accountId) {
         return new CreatePlayerUseCase.InputValues(
+                request.getName(),
                 accountId,
-                request.getName()
+                request.getVocationId()
         );
     }
 }

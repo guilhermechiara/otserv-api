@@ -25,14 +25,14 @@ public class PlayerRepositoryImpl implements PlayerRepository {
     }
 
     @Override
-    public Optional<Player> getById(Long id) {
+    public Optional<Player> findById(Long id) {
         return this.jpaPlayerRepository
                 .findById(id)
                 .map(PlayerEntity::to);
     }
 
     @Override
-    public Optional<List<Player>> getByAccountId(Long id) {
+    public Optional<List<Player>> findByAccountId(Long id) {
         return this.jpaPlayerRepository
                 .findAllByAccount_Id(id)
                 .map(PlayerEntity::to);

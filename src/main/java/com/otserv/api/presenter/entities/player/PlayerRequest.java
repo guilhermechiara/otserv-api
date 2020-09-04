@@ -11,4 +11,7 @@ import javax.validation.constraints.NotNull;
 public class PlayerRequest {
     @NotNull
     private String name;
+
+    @NotNull
+    private Integer vocationId;
 }

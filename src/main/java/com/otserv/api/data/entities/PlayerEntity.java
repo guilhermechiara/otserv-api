@@ -39,13 +39,13 @@ public class PlayerEntity {
     @JoinColumn(name = "vocation", nullable = false)
     private VocationEntity vocation;
 
-    @Column(name = "health")
+    @Column(name = "health", insertable = false)
     private int health;
 
-    @Column(name = "healthmax")
+    @Column(name = "healthmax", insertable = false)
     private int healthMax;
 
-    @Column(name = "experience")
+    @Column(name = "experience", insertable = false)
     private Long experience;
 
     public static Player to(PlayerEntity player) {

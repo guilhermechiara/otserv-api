@@ -4,8 +4,6 @@ import com.otserv.api.core.domain.Vocation;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 @Entity(name = "vocations")
 @Getter
@@ -14,8 +12,8 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VocationEntity {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Id
+    private Integer id;
 
     @Column(name = "name")
     private String name;
