@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface JpaPlayerRepository extends JpaRepository<PlayerEntity, Long> {
     Optional<PlayerEntity> findById(Long id);
     Optional<List<PlayerEntity>> findAllByAccount_Id(Long id);
+
+    boolean existsByName(String name);
 }

@@ -37,4 +37,9 @@ public class PlayerRepositoryImpl implements PlayerRepository {
                 .findAllByAccount_Id(id)
                 .map(PlayerEntity::to);
     }
+
+    @Override
+    public boolean existsByName(String name) {
+        return this.jpaPlayerRepository.existsByName(name);
+    }
 }

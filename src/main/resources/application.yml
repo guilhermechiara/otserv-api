@@ -14,6 +14,6 @@ spring:
 
 # Custom path configuration
 folders-config:
-  data-path: data
+  data-path: ../server/forgottenserver/data
 
 

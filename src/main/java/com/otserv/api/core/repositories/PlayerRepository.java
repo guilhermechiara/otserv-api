@@ -9,4 +9,6 @@ public interface PlayerRepository {
     Player save(Player player);
     Optional<Player> findById(Long id);
     Optional<List<Player>> findByAccountId(Long id);
+
+    boolean existsByName(String name);
 }

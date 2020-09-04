@@ -5,6 +5,7 @@ import com.otserv.api.core.domain.Account;
 import com.otserv.api.core.domain.Player;
 import com.otserv.api.core.domain.PlayerGroup;
 import com.otserv.api.core.domain.Vocation;
+import com.otserv.api.core.exceptions.PlayerNameAlreadyInUse;
 import com.otserv.api.core.repositories.PlayerRepository;
 import com.otserv.api.core.usecases.accounts.GetAccountByIdUseCase;
 import com.otserv.api.core.usecases.vocations.GetVocationByIdUseCase;
@@ -33,6 +34,10 @@ public class CreatePlayerUseCase implements
 
     @Override
     public OutputValues execute(InputValues input) {
+        if (this.playerRepository.existsByName(input.getName())) {
+            throw new PlayerNameAlreadyInUse();
+        }
+
         Account account = this.getAccountByIdUseCase
                 .execute(new GetAccountByIdUseCase.InputValues(input.getAccountId()))
                 .getAccount();
