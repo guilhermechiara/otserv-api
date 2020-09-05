@@ -41,7 +41,7 @@ public class VocationRepositoryImpl implements VocationRepository {
     }
 
     @Override
-    public List<Vocation> getAll() {
+    public List<Vocation> findAll() {
         CompletableFuture.runAsync(this::updateTableFromXml);
 
         return this.jpaVocationRepository

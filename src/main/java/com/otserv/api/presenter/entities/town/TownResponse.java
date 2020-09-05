@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Getter
 @Builder
 @NoArgsConstructor
@@ -26,5 +29,12 @@ public class TownResponse {
                 .posY(town.getPosY())
                 .posZ(town.getPosY())
                 .build();
+    }
+
+    public static List<TownResponse> from(List<Town> towns) {
+        return towns
+                .stream()
+                .map(TownResponse::from)
+                .collect(Collectors.toList());
     }
 }

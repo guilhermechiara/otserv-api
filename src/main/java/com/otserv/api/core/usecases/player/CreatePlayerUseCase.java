@@ -40,17 +40,17 @@ public class CreatePlayerUseCase implements
 
     @Override
     public OutputValues execute(InputValues input) {
-        logger.info("Checking player name");
+        logger.info("Checking player name...");
         if (this.playerRepository.existsByName(input.getName())) {
             throw new PlayerNameAlreadyInUse();
         }
 
-        logger.info("Getting account by id");
+        logger.info("Getting account by id...");
         Account account = this.getAccountByIdUseCase
                 .execute(new GetAccountByIdUseCase.InputValues(input.getAccountId()))
                 .getAccount();
 
-        logger.info("Getting vocation by id");
+        logger.info("Getting vocation by id...");
         Vocation vocation = this.getVocationByIdUseCase
                 .execute(new GetVocationByIdUseCase.InputValues(input.getVocationId()))
                 .getVocation();
@@ -59,7 +59,7 @@ public class CreatePlayerUseCase implements
                 .execute(new GetTownByIdUseCase.InputValues(input.getTownId()))
                 .getTown();
 
-        logger.info("Creating player");
+        logger.info("Creating player...");
         Player player = Player.builder()
                 .account(account)
                 .group(PlayerGroup.PLAYER)

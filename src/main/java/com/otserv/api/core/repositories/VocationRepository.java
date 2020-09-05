@@ -6,6 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface VocationRepository {
-    List<Vocation> getAll();
+    List<Vocation> findAll();
     Optional<Vocation> findById(Integer id);
 }

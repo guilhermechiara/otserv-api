@@ -20,7 +20,7 @@ public class GetVocationsUseCase implements
     @Override
     public OutputValues execute(InputValues input) {
         return new OutputValues(
-                this.vocationRepository.getAll()
+                this.vocationRepository.findAll()
         );
     }
 

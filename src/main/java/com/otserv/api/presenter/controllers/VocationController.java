@@ -23,7 +23,7 @@ public class VocationController {
     }
 
     @GetMapping
-    public CompletableFuture<List<VocationResponse>> getAll() {
+    public CompletableFuture<List<VocationResponse>> findAll() {
         logger.info("Retrieving all vocations...");
 
         return CompletableFuture
