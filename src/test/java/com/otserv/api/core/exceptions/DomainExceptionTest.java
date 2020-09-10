@@ -1,4 +1,4 @@
-package com.otserv.api.core.domain;
+package com.otserv.api.core.exceptions;
 
 import com.otserv.api.core.exceptions.DomainException;
 import org.junit.jupiter.api.Assertions;
@@ -12,7 +12,7 @@ public class DomainExceptionTest {
         Assertions.assertEquals(
                 exception.getMessage(),
                 "Domain Exception",
-                "NotFoundException should have a message"
+                "DomainException should have a message"
         );
     }
 }

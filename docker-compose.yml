@@ -5,7 +5,7 @@ services:
     image: mariadb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: anypassword
+      MYSQL_ROOT_PASSWORD: chiara
       MYSQL_DATABASE: server
     volumes:
       - ./database:/var/lib/mysql
@@ -30,7 +30,7 @@ services:
       MARIADB_DATABASE: server
       MARIADB_PORT: 3306
       MARIADB_USERNAME: root
-      MARIADB_PASSWORD: anypassword
+      MARIADB_PASSWORD: chiara
     ports:
       - 8080:8080
     depends_on:

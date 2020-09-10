@@ -1,4 +1,4 @@
-package com.otserv.api.core.domain;
+package com.otserv.api.core.exceptions;
 
 import com.otserv.api.core.exceptions.NotFoundException;
 import org.junit.jupiter.api.Assertions;
