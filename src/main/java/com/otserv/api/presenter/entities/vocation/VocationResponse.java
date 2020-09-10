@@ -1,7 +1,6 @@
 package com.otserv.api.presenter.entities.vocation;
 
 import com.otserv.api.core.domain.Vocation;
-import com.otserv.api.core.repositories.VocationRepository;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

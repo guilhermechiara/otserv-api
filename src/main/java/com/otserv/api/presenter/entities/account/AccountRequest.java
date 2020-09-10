@@ -1,6 +1,5 @@
 package com.otserv.api.presenter.entities.account;
 
-import com.otserv.api.core.domain.AccountType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

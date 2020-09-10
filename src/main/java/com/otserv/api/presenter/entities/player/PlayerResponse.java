@@ -1,7 +1,6 @@
 package com.otserv.api.presenter.entities.player;
 
 import com.otserv.api.core.domain.Player;
-import com.otserv.api.presenter.entities.account.AccountResponse;
 import com.otserv.api.presenter.entities.town.TownResponse;
 import com.otserv.api.presenter.entities.vocation.VocationResponse;
 import lombok.AllArgsConstructor;

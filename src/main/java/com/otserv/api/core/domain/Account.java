@@ -3,8 +3,6 @@ package com.otserv.api.core.domain;
 import lombok.*;
 
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.Instant;
 import java.util.List;
 
 @Builder
