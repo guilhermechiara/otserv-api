@@ -5,7 +5,7 @@ Hi! The purpose of this project is to provide a simple and robust API for TheFor
 
  1. You can run this project through docker-compose.
 
-    docker-compose build up
+	    docker-compose build up
 
  2. Docker will automatically start a mariadb instance, an adminer instance and the apis.
  3. The database is saved inside **database** folder (it's a volume pointing to the container)
