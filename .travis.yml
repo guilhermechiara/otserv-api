@@ -10,4 +10,5 @@ addons:
                 UeWSUCV8LH2p+V1rUzROgP6mVK4VkB28eJc8dnNgJgg07hoblIcnLHW6o2U8rk+UBYv3xW4yhZya2Iaaq0NuIgEs0eM3jdVFebxbBS5sbMq2Wnvq/TIGRVU0oHZjtsAgWfs5Ii+lMwSFADIGa5yEQjMAQDIhU4at7u+HKhaFIpzX1aUZhV7G4ldCrGTQdSsy00lLhacTIeNHIP7/Kp47oOAex6EW+7/Wk6KHpc=" # encrypted value of your token
 
 script:
+  - ./gradlew clean test build
   - ./gradlew sonarqube
