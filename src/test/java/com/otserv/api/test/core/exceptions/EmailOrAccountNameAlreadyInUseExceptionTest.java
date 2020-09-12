@@ -1,4 +1,4 @@
-package com.otserv.api.core.exceptions;
+package com.otserv.api.test.core.exceptions;
 
 import com.otserv.api.core.exceptions.EmailOrAccountNameAlreadyInUseException;
 import org.junit.jupiter.api.Assertions;

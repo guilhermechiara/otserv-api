@@ -1,8 +1,8 @@
 package com.otserv.api.core.usecases.town;
 
 import com.otserv.api.core.UseCase;
-import com.otserv.api.core.domain.Town;
 import com.otserv.api.core.repositories.TownRepository;
+import com.otserv.api.core.domain.Town;
 import lombok.Value;
 import org.springframework.stereotype.Service;
 

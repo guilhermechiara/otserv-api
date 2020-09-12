@@ -1,5 +1,6 @@
-package com.otserv.api.core.domain;
+package com.otserv.api.test.core.domain;
 
+import com.otserv.api.core.domain.AccountType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

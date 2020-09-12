@@ -1,6 +1,7 @@
 package com.otserv.api.data.repositories;
 
 import com.otserv.api.core.domain.Account;
+import com.otserv.api.core.repositories.AccountRepository;
 import com.otserv.api.data.entities.AccountEntity;
 import com.otserv.api.data.repositories.jpa.JpaAccountRepository;
 import org.springframework.stereotype.Repository;
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public class AccountRepositoryImpl implements com.otserv.api.core.repositories.AccountRepository {
+public class AccountRepositoryImpl implements AccountRepository {
     private JpaAccountRepository jpaAccountRepository;
 
     public AccountRepositoryImpl(JpaAccountRepository jpaAccountRepository) {

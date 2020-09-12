@@ -1,7 +1,6 @@
 package com.otserv.api.presenter.controllers;
 
 import com.otserv.api.core.usecases.town.GetTownsUseCase;
-import com.otserv.api.core.usecases.vocation.GetVocationsUseCase;
 import com.otserv.api.presenter.entities.town.TownResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

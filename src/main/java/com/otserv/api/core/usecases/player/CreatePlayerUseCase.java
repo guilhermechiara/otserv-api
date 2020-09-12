@@ -2,13 +2,12 @@ package com.otserv.api.core.usecases.player;
 
 import com.otserv.api.config.PlayerConfiguration;
 import com.otserv.api.core.UseCase;
-import com.otserv.api.core.domain.*;
-import com.otserv.api.core.exceptions.PlayerNameAlreadyInUse;
-import com.otserv.api.core.repositories.PlayerRepository;
 import com.otserv.api.core.usecases.account.GetAccountByIdUseCase;
 import com.otserv.api.core.usecases.town.GetTownByIdUseCase;
 import com.otserv.api.core.usecases.vocation.GetVocationByIdUseCase;
-import com.otserv.api.core.exceptions.*;
+import com.otserv.api.core.exceptions.PlayerNameAlreadyInUse;
+import com.otserv.api.core.domain.*;
+import com.otserv.api.core.repositories.PlayerRepository;
 import lombok.Value;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

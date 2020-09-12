@@ -1,7 +1,7 @@
 package com.otserv.api.core.usecases.account;
 
-import com.otserv.api.core.UseCase;
 import com.otserv.api.core.domain.Account;
+import com.otserv.api.core.UseCase;
 import com.otserv.api.core.exceptions.NotFoundException;
 import com.otserv.api.core.repositories.AccountRepository;
 import lombok.Value;
