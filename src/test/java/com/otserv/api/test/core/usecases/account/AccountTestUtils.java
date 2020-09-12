@@ -8,7 +8,7 @@ import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 public class AccountTestUtils {
-    public static Account randomAccount() {
+    public static Account createRandom() {
         Faker faker = new Faker();
 
         return Account

@@ -51,7 +51,7 @@ public class CreateAccountUseCaseTest {
                         this.faker.bothify("##??##??##@gmail.com")
                 );
 
-        Account expected = AccountTestUtils.randomAccount();
+        Account expected = AccountTestUtils.createRandom();
 
         Mockito.doReturn(this.faker.crypto().sha1())
                 .when(passwordRepository)

@@ -47,7 +47,7 @@ public class GetAccountByIdUseCaseTest {
 
     @Test
     public void shouldReturnAccountById() {
-        Account account = AccountTestUtils.randomAccount();
+        Account account = AccountTestUtils.createRandom();
         GetAccountByIdUseCase.InputValues input =
                 new GetAccountByIdUseCase.InputValues(account.getId());
 
