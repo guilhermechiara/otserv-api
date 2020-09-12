@@ -58,5 +58,7 @@ jacocoTestReport {
 sonarqube {
     properties {
         property "sonar.projectKey", "guilhermechiara_otserv-api"
+        property "sonar.organization", "guilhermechiara"
+        property "sonar.host.url", "https://sonarcloud.io"
     }
 }
