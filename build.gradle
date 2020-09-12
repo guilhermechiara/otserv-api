@@ -57,7 +57,6 @@ jacocoTestReport {
 
 sonarqube {
     properties {
-        property 'sonar.projectKey', 'guilhermechiara_otserv-api'
-
+        property "sonar.projectKey", "guilhermechiara_otserv-api"
     }
 }

@@ -5,10 +5,9 @@ addons:
   sonarcloud:
     organization: "guilhermechiara"
     token:
-      secure: "wuO66G/WuJBjkPbOb4Gw9/7/FGj1RSssXHt0nyd6MrxcQ0JlvQft0RA9QD+XjdC501cRRGS8fpYNny3CmdVVSz/unUgXW4IjQdR5Uh3Occr44Ky9Bq9vGmCMUD+9izYgNug4D7ERhXZnOapR+2uqc+dX6EmpXEzxlmWUG5cgNfN5wM/clw29bmKamwn0b0xoWYZnxOHb85uovsmH43HMBMEeFPrcC
-      UzUdyKGimVEJrtxo6i8cH6IkxFaPB4/UMmhSxV9GjiGevZH66OPIaPWzgYOFG4iNBX4MQpW/T3eg/+mAsawtbomETKTwnDjfj0q/XiML89Z0fmdgJhLk0uxxInaZFJ5DdRsjgFQfj23Y3rGuD/AHSZ+rpEESMzIM206Y95qBMfhBW8tJz0iczZRfDSK5vwWCr7xfjJAtkAm3ocLRq98vwCTu3GUW+Ez968jE+54B
-      ddi+Ag4PBK/Et5b6VshglWpuXEPK8F23gaYXmK0kawhkRBKO9e/tbGLNMCT1ai01Z55Nxosc4LJ7LyM2mVhwEh3Ojd+hUFPfodaQ0OEFDRrBj6/ch9wcGi6IkEHLK+qchL45yobVKnLZzTN2BSYZBw6QlhZvruWrCGIVM/VMAU5QA8Ka6HYi17d5VRnhU+x+3yCwovFbvfrxXQ0F5RpR9aP2KmZ0VmMskL4utc="
+      secure: "b2s03Jmws8YUuAaRx6fv9ShJthRrefCVdbJ2eo1EKZ6lYv78NI2OkU4TeCeLQYReHTvEdrHTXj/PvX4QjVCV+RFfTGVGYkvC6ZuPHVapSs4EaKWVb+nuPx4klyMbZTMKU/qgOXxAFHrWX2AcNKgrDJbaY2vHq3pFfclrUUk3qzPxCvIi4kJ9rxuUuxDQ2roQBi7G1GqdhSudZMGbcHQ9exTO85CLM
+      w1sIoIwrAwAxhQmmSHdng2qWnWlxtKfE/p68sBBnGgX4oxqzwsQf0B6RJT8u8fnwWBKuXzZsfgHEpmjkMG9NezD4lINBvSAMtuPvsrihlxlsww2MN7ggddrj+wzjkL+5+i4vfOdCSj3xFnPSXKMZf9UNRehf5n9TAoubFTvhufYENMqGCCrSpIQiz8iAbpx8YUVf2rj4hZ/AVj3kO9Tb4kYhgCnS12WwRG8VtsBc
+      u4dkXhglL6N8oVAVZ9T2BB8FPZxScC57WUTIeE7PEePRdwAST1YIUEBd3m4SfdG8MpBYsljvVlRAdydP5kkGpX4eNedtsTzSfhTG8Uuy0IT/Cg9z2Ns6skARu7M3VAJqrH4r5GaCeUtqOetkB8D020RCyoALroPgxvB/l/zKhDO/7f25r+JeHYLJWMzWS4HiL6LM1IymHAeHQV7n6BxiBNfHXGe9Zwz1xLMeG0="
 
 script:
-  - ./gradlew clean test build
   - ./gradlew sonarqube
