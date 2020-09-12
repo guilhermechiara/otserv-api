@@ -1,4 +1,5 @@
-## Welcome to OTServAPI [![Build Status](https://travis-ci.org/guilhermechiara/otserv-api.svg?branch=master)](https://travis-ci.org/guilhermechiara/otserv-api) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=guilhermechiara_otserv-api&metric=coverage)](https://sonarcloud.io/dashboard?id=guilhermechiara_otserv-api) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=guilhermechiara_otserv-api&metric=code_smells)](https://sonarcloud.io/dashboard?id=guilhermechiara_otserv-api) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=guilhermechiara_otserv-api&metric=bugs)](https://sonarcloud.io/dashboard?id=guilhermechiara_otserv-api)
+## Welcome to OTServAPI [![Build Status](https://travis-ci.org/guilhermechiara/otserv-api.svg?branch=master)](https://travis-ci.org/guilhermechiara/otserv-api)
+
 Hi! The purpose of this project is to provide a simple and robust API for [TheForgottenServer](https://github.com/otland/forgottenserver), so you can easily create integrations and your own website.  It should work fine with the last version of TFS and might need some adjustments to work properly on older versions, as database can change between versions.
 
 ### Starting
