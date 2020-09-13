@@ -9,5 +9,12 @@ addons:
       0Dw9yp99mfeSKpcDt9MUGUTinJLFILcunMh+8eVz/NmlywiVwJ89J3Nk/28L6yAxGKVCT/ubjOKJgnWFYHLlIQUeZ3JYZIcX3Qwy8NqE1cvaRf3riBdwzGnXnD6Cw/i5WDywY9MdzXo3cPBzzmw3FIUn6tbBCtmV6REtk6csZWRVIRBrat/4ozD96j0YtF4G71Br0P6XHDQ24NuYNXu4IdMzh2KLZN04fBoTtv2p
       uccEcaMn1Clpbd8ELjrC0WtSQxiPIjTZ5hN3/P7BjwUWp0ZM+DJ7eiP3pd0MkJuUOkBoB0r9bLaPo3uuKQ2SnEfaFiJY6q228qiuyUkIT92+0wtu41BPu44qtEkv2ZoRwS3wxsgfx0fniKOTYhvLlL0GXMWVexa23Mho4m/hUloIrbAqUntdWiB/agwqpqF6OzJt2yHjdZivGuvgb8jbevsTSohT4W2OUSSJKM=" # encrypted value of your token
 
+before_script:
+  - chmod +x gradlew
+
 script:
-  - ./gradlew sonarqube
+  - ./gradlew check
+  - ./gradlew codeCoverageReport
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
