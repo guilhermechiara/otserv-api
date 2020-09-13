@@ -16,6 +16,7 @@ script:
   - ./gradlew check
   - ./gradlew codeCoverageReport
   - ./gradlew jacocoTestReport
+  - ./gradlew sonarqube
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
