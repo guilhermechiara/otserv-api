@@ -23,7 +23,7 @@ public class GetPlayersByAccountIdUseCase implements
         return new OutputValues(
                 this.playerRepository
                         .findByAccountId(input.getId())
-                        .orElseThrow(() -> new NotFoundException("Player with account id not found"))
+                        .orElseThrow(() -> new NotFoundException("Players with account id not found"))
         );
     }
 
