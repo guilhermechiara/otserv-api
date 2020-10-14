@@ -21,7 +21,7 @@ public class GetPlayerByIdUseCase implements
         return new OutputValues(
                 this.playerRepository
                         .findById(input.getId())
-                        .orElseThrow(() -> new NotFoundException("Player with this name not found"))
+                        .orElseThrow(() -> new NotFoundException("Player with id not found"))
         );
     }
 
