@@ -1,4 +1,38 @@
 spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    url: "jdbc:mariadb://localhost:3306/server"
+    username: root
+    password: chiara
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+# Custom path configuration
+folders-config:
+  data-path: ../server/forgottenserver/data
+
+player-config:
+  level: 8
+  experience: 4200
+  health: 185
+  mana: 90
+
+---
+
+spring:
+  profiles: production
   datasource:
     url: "jdbc:mariadb://${MARIADB_HOSTNAME}:${MARIADB_PORT}/${MARIADB_DATABASE}"
     username: ${MARIADB_USERNAME}

@@ -23,22 +23,6 @@ services:
     networks:
       - server-network
 
-  api:
-    build: .
-    environment:
-      MARIADB_HOSTNAME: db
-      MARIADB_DATABASE: server
-      MARIADB_PORT: 3306
-      MARIADB_USERNAME: root
-      MARIADB_PASSWORD: chiara
-    ports:
-      - 8080:8080
-    depends_on:
-      - db
-      - adminer
-    networks:
-      - server-network
-
 networks:
   server-network:
     driver: bridge

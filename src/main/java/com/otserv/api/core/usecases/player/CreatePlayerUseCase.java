@@ -9,6 +9,7 @@ import com.otserv.api.core.exceptions.PlayerNameAlreadyInUse;
 import com.otserv.api.core.domain.*;
 import com.otserv.api.core.repositories.PlayerRepository;
 import lombok.Value;
+import lombok.val;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -41,26 +42,24 @@ public class CreatePlayerUseCase implements
     @Override
     public OutputValues execute(InputValues input) {
         logger.info("Checking player name...");
-        if (this.playerRepository.existsByName(input.getName())) {
-            throw new PlayerNameAlreadyInUse();
-        }
+        if (this.playerRepository.existsByName(input.getName())) throw new PlayerNameAlreadyInUse();
 
         logger.info("Getting account by id...");
-        Account account = this.getAccountByIdUseCase
+        val account = this.getAccountByIdUseCase
                 .execute(new GetAccountByIdUseCase.InputValues(input.getAccountId()))
                 .getAccount();
 
         logger.info("Getting vocation by id...");
-        Vocation vocation = this.getVocationByIdUseCase
+        val vocation = this.getVocationByIdUseCase
                 .execute(new GetVocationByIdUseCase.InputValues(input.getVocationId()))
                 .getVocation();
 
-        Town town = this.getTownByIdUseCase
+        val town = this.getTownByIdUseCase
                 .execute(new GetTownByIdUseCase.InputValues(input.getTownId()))
                 .getTown();
 
         logger.info("Creating player...");
-        Player player = Player.builder()
+        val player = Player.builder()
                 .account(account)
                 .group(PlayerGroup.PLAYER)
                 .name(input.getName())
